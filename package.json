@@ -1,0 +1,33 @@
+{
+  "name": "bookends",
+  "version": "1.0.0",
+  "description": "A React-based Google Books Search app.",
+  "main": "server.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently -k \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HelenIL/BookEnds.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HelenIL/BookEnds/issues"
+  },
+  "homepage": "https://github.com/HelenIL/BookEnds#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "concurrently": "^6.1.0",
+    "express": "^4.17.1",
+    "if-env": "^1.0.4",
+    "mongoose": "^5.12.10",
+    "nodemon": "^2.0.7"
+  }
+}
